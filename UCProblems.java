@@ -1,32 +1,32 @@
 public class UCProblems {
     public static void main(String[] args) {
-        System.out.println("Welcome to Employee wage computation program");
-        int WAGE_PER_HR = 20;
-        int FULL_DAY= 8;
-        int PAY = 0;
-        int PART_TIME = 4;
-        int num =(int) Math.floor((Math.random()*10)) % 3;
-        System.out.println(num);
+        System.out.println("welcome to employee wage computation program");
+        int empHrs;
+        int dailyWage;
+        int monthlyWage = 0;
+        int empWagePerHrs = 20;
+        int workingDaysPerMonth = 20;
+        for (int day = 0; day < workingDaysPerMonth; day++) {
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+            switch (empCheck) {
+                case 1:
+                    System.out.println("Employee is Present");
+                    empHrs = 8;
+                    break;
+                case 2:
+                    System.out.println("Employee is Part-Time Present");
+                    empHrs = 4;
+                    break;
+                default:
+                    System.out.println("Employee is Absent");
+                    empHrs = 0;
+            }
 
-        switch (num) {
-            case 1: {
-                System.out.println("Employee is Present");
-                PAY = WAGE_PER_HR * FULL_DAY;
-            }
-            break;
-            case 2: {
-                System.out.println("Employee is on Part Time");
-                PAY = WAGE_PER_HR * PART_TIME;
-            }
-            break;
-            case 0: {
-                System.out.println("Employee is Absent");
-            }
-            break;
+            dailyWage = empHrs * empWagePerHrs;
+            monthlyWage = dailyWage + monthlyWage;
+            System.out.println("Daily wage of employee is " + dailyWage);
         }
-        System.out.println("The total Wage of Employee is"+" "+PAY);
-
-
-
+        System.out.println("-------------------");
+        System.out.println("Monthly employee wage is " + monthlyWage);
     }
 }
